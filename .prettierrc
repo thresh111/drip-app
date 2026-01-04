@@ -1,0 +1,22 @@
+{
+  "singleQuote": true,
+  "jsxSingleQuote": false,
+  "trailingComma": "all",
+  "printWidth": 100,
+  "proseWrap": "never",
+  "plugins": ["prettier-plugin-packagejson", "prettier-plugin-tailwindcss"],
+  "overrides": [
+    {
+      "files": ".prettierrc",
+      "options": {
+        "parser": "json"
+      }
+    },
+    {
+      "files": "package.json",
+      "options": {
+        "parser": "json-stringify"
+      }
+    }
+  ]
+}

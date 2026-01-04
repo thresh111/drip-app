@@ -1,5 +1,7 @@
-import { ConfigProvider } from "antd";
-import zhCN from "antd/locale/zh_CN";
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/locale/zh_CN';
+import { RouterProvider } from 'react-router';
+import { routes } from '@/router';
 
 function App() {
   return (
@@ -23,7 +25,7 @@ function App() {
       }}
       locale={zhCN}
     >
-      <div className="text-red-500">App</div>
+      <RouterProvider router={routes} />
     </ConfigProvider>
   );
 }
