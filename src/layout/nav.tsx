@@ -5,12 +5,14 @@ import { motion } from 'motion/react';
 import { useHashModal } from '@/components/common/HashModal';
 import SvgIcon from '@/components/common/svg-icon';
 import { cn } from '@/lib/utils';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 function Nav() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { toggle } = useHashModal('search');
   const [collapsed, setCollapsed] = useState(false);
+  const [compact, setCompact] = useState(false);
   const [logoHover, setLogoHover] = useState(false);
 
   useEffect(() => {
@@ -29,6 +31,9 @@ function Nav() {
       initial={false}
       animate={{ width: collapsed ? 54 : 300 }}
       transition={{ type: 'spring', stiffness: 320, damping: 32 }}
+      onAnimationComplete={() => {
+        setCompact(collapsed);
+      }}
       className={cn('start-0 z-10 flex h-screen flex-col overflow-hidden bg-(--background-nav)')}
     >
       <div className={'pointer-events-auto flex h-[56px] items-center justify-between py-[12px] ps-[13px] pe-[11px]'}>
@@ -75,7 +80,8 @@ function Nav() {
           onClick={() => navigate('/')}
           className={cn(
             'group pointer-events-auto flex h-[36px] w-full cursor-pointer items-center gap-3 rounded-[10px] px-3 transition-colors hover:bg-(--fill-tsp-white-light)',
-            collapsed && 'justify-center',
+            compact && 'justify-center',
+            location.pathname === '/' && 'bg-(--fill-tsp-white-light)',
           )}
         >
           <div className={'flex size-[18px] shrink-0 items-center justify-center'}>
@@ -90,7 +96,7 @@ function Nav() {
           onClick={toggle}
           className={cn(
             'group pointer-events-auto flex h-[36px] w-full cursor-pointer items-center gap-3 rounded-[10px] px-3 transition-colors hover:bg-(--fill-tsp-white-light)',
-            collapsed && 'justify-center',
+            compact && 'justify-center',
           )}
         >
           <div className={'flex size-[18px] shrink-0 items-center justify-center'}>
@@ -111,8 +117,10 @@ function Nav() {
         <div
           className={cn(
             'group pointer-events-auto flex h-[36px] w-full cursor-pointer items-center gap-3 rounded-[10px] px-3 transition-colors hover:bg-(--fill-tsp-white-light)',
-            collapsed && 'justify-center',
+            compact && 'justify-center',
+            location.pathname === '/knowledge-base' && 'bg-(--fill-tsp-white-light)',
           )}
+          onClick={() => navigate('/knowledge-base')}
         >
           <div className={'flex size-[18px] shrink-0 items-center justify-center'}>
             <Tooltip title={collapsed ? '知识库' : ''} arrow={false} placement="right">
