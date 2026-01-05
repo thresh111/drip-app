@@ -1,6 +1,8 @@
 import Layout from '@/layout';
 import Agent from '@/pages/agent';
 import KnowledgeBase from '@/pages/knowledge-base';
+import Login from '@/pages/login';
+import Workflow from '@/pages/workflow';
 import { createBrowserRouter } from 'react-router';
 
 export const routes = createBrowserRouter([
@@ -16,6 +18,14 @@ export const routes = createBrowserRouter([
         path: '/knowledge-base',
         element: <KnowledgeBase />,
       },
+      {
+        path: '/workflow',
+        element: <Workflow />,
+      },
     ],
+  },
+  {
+    path: '/login',
+    element: <Login />,
   },
 ]);

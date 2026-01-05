@@ -1,5 +1,5 @@
-import { Tooltip } from 'antd';
-import { CommandIcon, LibraryBigIcon, PanelLeftIcon, SearchIcon, SquarePenIcon } from 'lucide-react';
+import { Divider, Tooltip } from 'antd';
+import { CommandIcon, LibraryBigIcon, PanelLeftIcon, SearchIcon, SquarePenIcon, WorkflowIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { useHashModal } from '@/components/common/HashModal';
@@ -130,7 +130,25 @@ function Nav() {
           {!collapsed && <div className={'flex min-w-0 flex-1 items-center gap-[4px] text-[14px] text-(--text-primary)'}>知识库</div>}
         </div>
 
-        <div className={'mx-[6px] flex h-full min-h-0 flex-1 flex-col'}></div>
+        <div
+          className={cn(
+            'group pointer-events-auto flex h-[36px] w-full cursor-pointer items-center gap-3 rounded-[10px] px-3 transition-colors hover:bg-(--fill-tsp-white-light)',
+            compact && 'justify-center',
+            location.pathname === '/workflow' && 'bg-(--fill-tsp-white-light)',
+          )}
+          onClick={() => navigate('/workflow')}
+        >
+          <div className={'flex size-[18px] shrink-0 items-center justify-center'}>
+            <Tooltip title={collapsed ? '工作流' : ''} arrow={false} placement="right">
+              <WorkflowIcon className={'size-[18px]'} />
+            </Tooltip>
+          </div>
+          {!collapsed && <div className={'flex min-w-0 flex-1 items-center gap-[4px] text-[14px] text-(--text-primary)'}>工作流</div>}
+        </div>
+
+        <Divider>
+          <span className="text-sm text-(--text-secondary)">最近任务</span>
+        </Divider>
       </div>
     </motion.div>
   );
