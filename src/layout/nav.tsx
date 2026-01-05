@@ -1,13 +1,27 @@
 import { Tooltip } from 'antd';
 import { CommandIcon, PanelLeftIcon, SearchIcon } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
+import { useHashModal } from '@/components/common/HashModal';
 import SvgIcon from '@/components/common/svg-icon';
 import { cn } from '@/lib/utils';
 
 function Nav() {
   const [collapsed, setCollapsed] = useState(false);
   const [logoHover, setLogoHover] = useState(false);
+  const { toggle } = useHashModal('search');
+
+  // ⌘K 快捷键
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        toggle();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [toggle]);
 
   return (
     <motion.div
@@ -56,6 +70,7 @@ function Nav() {
       </div>
       <div className={'flex min-h-0 flex-1 flex-col gap-[2px] px-[6px]'}>
         <div
+          onClick={toggle}
           className={cn(
             'group pointer-events-auto flex h-[36px] w-full cursor-pointer items-center gap-3 rounded-[10px] px-3 transition-colors hover:bg-(--fill-tsp-white-light)',
             collapsed && 'justify-center',
