@@ -1,5 +1,5 @@
 function Agent() {
-  return <div className={''}></div>;
+  return <div>agent page</div>;
 }
 
 export default Agent;

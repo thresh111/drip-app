@@ -1,17 +1,18 @@
 import { Tooltip } from 'antd';
-import { CommandIcon, PanelLeftIcon, SearchIcon } from 'lucide-react';
+import { CommandIcon, LibraryBigIcon, PanelLeftIcon, SearchIcon, SquarePenIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { useHashModal } from '@/components/common/HashModal';
 import SvgIcon from '@/components/common/svg-icon';
 import { cn } from '@/lib/utils';
+import { useNavigate } from 'react-router';
 
 function Nav() {
+  const navigate = useNavigate();
+  const { toggle } = useHashModal('search');
   const [collapsed, setCollapsed] = useState(false);
   const [logoHover, setLogoHover] = useState(false);
-  const { toggle } = useHashModal('search');
 
-  // ⌘K 快捷键
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
@@ -68,7 +69,23 @@ function Nav() {
           </div>
         )}
       </div>
+
       <div className={'flex min-h-0 flex-1 flex-col gap-[2px] px-[6px]'}>
+        <div
+          onClick={() => navigate('/')}
+          className={cn(
+            'group pointer-events-auto flex h-[36px] w-full cursor-pointer items-center gap-3 rounded-[10px] px-3 transition-colors hover:bg-(--fill-tsp-white-light)',
+            collapsed && 'justify-center',
+          )}
+        >
+          <div className={'flex size-[18px] shrink-0 items-center justify-center'}>
+            <Tooltip title={collapsed ? '新建任务' : ''} arrow={false} placement="right">
+              <SquarePenIcon className={'size-[18px]'} />
+            </Tooltip>
+          </div>
+          {!collapsed && <div className={'flex min-w-0 flex-1 items-center gap-[4px] text-[14px] text-(--text-primary)'}>新建任务</div>}
+        </div>
+
         <div
           onClick={toggle}
           className={cn(
@@ -89,6 +106,20 @@ function Nav() {
               </div>
             </div>
           )}
+        </div>
+
+        <div
+          className={cn(
+            'group pointer-events-auto flex h-[36px] w-full cursor-pointer items-center gap-3 rounded-[10px] px-3 transition-colors hover:bg-(--fill-tsp-white-light)',
+            collapsed && 'justify-center',
+          )}
+        >
+          <div className={'flex size-[18px] shrink-0 items-center justify-center'}>
+            <Tooltip title={collapsed ? '知识库' : ''} arrow={false} placement="right">
+              <LibraryBigIcon className={'size-[18px]'} />
+            </Tooltip>
+          </div>
+          {!collapsed && <div className={'flex min-w-0 flex-1 items-center gap-[4px] text-[14px] text-(--text-primary)'}>知识库</div>}
         </div>
 
         <div className={'mx-[6px] flex h-full min-h-0 flex-1 flex-col'}></div>

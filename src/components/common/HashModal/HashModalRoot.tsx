@@ -29,12 +29,12 @@ function ModalWrapper({ id, children, zIndex = 1000 }: ModalWrapperProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="pointer-events-auto fixed inset-0"
+      className="pointer-events-auto fixed inset-0 z-1000"
       style={{ zIndex }}
     >
       <div className="fixed inset-0 h-full w-full bg-transparent backdrop-blur-none" onClick={close} />
 
-      <div className="pointer-events-none relative flex h-full w-full items-center justify-center">
+      <div className="pointer-events-none flex h-full w-full items-center justify-center border border-(--border-main)">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -57,7 +57,6 @@ export function HashModalRoot() {
   const registry = useSyncExternalStore(subscribeRegistry, getRegistrySnapshot, getRegistrySnapshot);
   const activeModals = useActiveModals();
 
-  // 禁止背景滚动
   useEffect(() => {
     if (activeModals.length > 0) {
       document.body.style.overflow = 'hidden';
