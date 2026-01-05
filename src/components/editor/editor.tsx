@@ -57,15 +57,13 @@ import { useWindowSize } from '@/hooks/use-window-size';
 import { useCursorVisibility } from '@/hooks/use-cursor-visibility';
 
 // --- Components ---
-import { ThemeToggle } from '@/components/theme-toggle';
+// import { ThemeToggle } from '@/components/theme-toggle';
 
 // --- Lib ---
 import { handleImageUpload, MAX_FILE_SIZE } from '@/lib/tiptap-utils';
 
 // --- Styles ---
 import '@/components/editor/editor.scss';
-
-import content from '@/components/editor/data/content.json';
 
 const MainToolbarContent = ({
   onHighlighterClick,
@@ -136,9 +134,7 @@ const MainToolbarContent = ({
 
       {isMobile && <ToolbarSeparator />}
 
-      <ToolbarGroup>
-        <ThemeToggle />
-      </ToolbarGroup>
+      <ToolbarGroup>{/* <ThemeToggle /> */}</ToolbarGroup>
     </>
   );
 };
@@ -211,7 +207,6 @@ export function DocumentEditor() {
         onError: (error) => console.error('Upload failed:', error),
       }),
     ],
-    content,
   });
 
   const rect = useCursorVisibility({
