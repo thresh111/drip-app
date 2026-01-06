@@ -2,7 +2,7 @@
 
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { Badge } from '@/components/ui/badge';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Collapsible } from '@douyinfe/semi-ui-19';
 import { cn } from '@/lib/utils';
 import { BrainIcon, ChevronDownIcon, DotIcon, type LucideIcon } from 'lucide-react';
 import type { ComponentProps, ReactNode } from 'react';
@@ -47,22 +47,22 @@ export const ChainOfThought = memo(({ className, open, defaultOpen = false, onOp
   );
 });
 
-export type ChainOfThoughtHeaderProps = ComponentProps<typeof CollapsibleTrigger>;
+export type ChainOfThoughtHeaderProps = ComponentProps<'button'>;
 
 export const ChainOfThoughtHeader = memo(({ className, children, ...props }: ChainOfThoughtHeaderProps) => {
   const { isOpen, setIsOpen } = useChainOfThought();
 
   return (
-    <Collapsible onOpenChange={setIsOpen} open={isOpen}>
-      <CollapsibleTrigger
-        className={cn('text-muted-foreground hover:text-foreground flex w-full items-center gap-2 text-sm transition-colors', className)}
-        {...props}
-      >
-        <BrainIcon className="size-4" />
-        <span className="flex-1 text-left">{children ?? 'Chain of Thought'}</span>
-        <ChevronDownIcon className={cn('size-4 transition-transform', isOpen ? 'rotate-180' : 'rotate-0')} />
-      </CollapsibleTrigger>
-    </Collapsible>
+    <button
+      type="button"
+      onClick={() => setIsOpen(!isOpen)}
+      className={cn('text-muted-foreground hover:text-foreground flex w-full items-center gap-2 text-sm transition-colors', className)}
+      {...props}
+    >
+      <BrainIcon className="size-4" />
+      <span className="flex-1 text-left">{children ?? 'Chain of Thought'}</span>
+      <ChevronDownIcon className={cn('size-4 transition-transform', isOpen ? 'rotate-180' : 'rotate-0')} />
+    </button>
   );
 });
 
@@ -111,23 +111,16 @@ export const ChainOfThoughtSearchResult = memo(({ className, children, ...props 
   </Badge>
 ));
 
-export type ChainOfThoughtContentProps = ComponentProps<typeof CollapsibleContent>;
+export type ChainOfThoughtContentProps = ComponentProps<'div'>;
 
 export const ChainOfThoughtContent = memo(({ className, children, ...props }: ChainOfThoughtContentProps) => {
   const { isOpen } = useChainOfThought();
 
   return (
-    <Collapsible open={isOpen}>
-      <CollapsibleContent
-        className={cn(
-          'mt-2 space-y-3',
-          'data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-2 data-[state=open]:slide-in-from-top-2 text-popover-foreground data-[state=closed]:animate-out data-[state=open]:animate-in outline-none',
-          className,
-        )}
-        {...props}
-      >
+    <Collapsible isOpen={isOpen}>
+      <div className={cn('mt-2 space-y-3', 'text-popover-foreground outline-none', className)} {...props}>
         {children}
-      </CollapsibleContent>
+      </div>
     </Collapsible>
   );
 });
