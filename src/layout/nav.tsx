@@ -1,4 +1,4 @@
-import { Divider, Tooltip } from 'antd';
+import { Divider, Tooltip } from '@douyinfe/semi-ui-19';
 import { CommandIcon, LibraryBigIcon, PanelLeftIcon, SearchIcon, SquarePenIcon, WorkflowIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
@@ -34,7 +34,7 @@ function Nav() {
       onAnimationComplete={() => {
         setCompact(collapsed);
       }}
-      className={cn('start-0 z-10 flex h-screen flex-col overflow-hidden bg-(--background-nav)')}
+      className={cn('bg-sidebar border-sidebar-border start-0 z-10 flex h-screen flex-col overflow-hidden border-r')}
     >
       <div className={'pointer-events-auto flex h-[56px] items-center justify-between py-[12px] ps-[13px] pe-[11px]'}>
         <div
@@ -57,19 +57,19 @@ function Nav() {
               opacity: collapsed && logoHover ? 1 : 0,
               pointerEvents: collapsed && logoHover ? 'auto' : 'none',
             }}
-            className={'absolute inset-0 flex items-center justify-center rounded-md bg-(--fill-tsp-gray-main) transition-colors'}
+            className={'absolute inset-0 flex items-center justify-center rounded-md transition-colors'}
           >
-            <div className={'flex size-[32px] cursor-pointer items-center justify-center rounded-md hover:bg-(--fill-tsp-gray-main)'}>
-              <Tooltip title={'展开侧栏'} arrow={false}>
-                <PanelLeftIcon className={'size-[18px] text-(--icon-secondary)'} onClick={() => setCollapsed(false)} />
+            <div className={'flex size-[32px] cursor-pointer items-center justify-center'}>
+              <Tooltip content={'展开侧栏'} arrow={false} position={'bottom'}>
+                <PanelLeftIcon className={'size-[18px]'} onClick={() => setCollapsed(false)} />
               </Tooltip>
             </div>
           </motion.div>
         </div>
         {!collapsed && (
-          <div className={'flex size-[32px] cursor-pointer items-center justify-center rounded-md hover:bg-(--fill-tsp-gray-main)'}>
-            <Tooltip title={'关闭侧栏'} arrow={false}>
-              <PanelLeftIcon className={'size-[18px] text-(--icon-secondary)'} onClick={() => setCollapsed(true)} />
+          <div className={'flex size-[32px] cursor-pointer items-center justify-center rounded-md'}>
+            <Tooltip content={'关闭侧栏'} arrow={false} position="bottom">
+              <PanelLeftIcon className={'size-[18px]'} onClick={() => setCollapsed(true)} />
             </Tooltip>
           </div>
         )}
@@ -79,35 +79,35 @@ function Nav() {
         <div
           onClick={() => navigate('/')}
           className={cn(
-            'group pointer-events-auto flex h-[36px] w-full cursor-pointer items-center gap-3 rounded-[10px] px-3 transition-colors hover:bg-(--fill-tsp-white-light)',
+            'group hover:bg-semi-fill-0 pointer-events-auto flex h-[36px] w-full cursor-pointer items-center gap-3 rounded-[10px] px-3 transition-colors',
             compact && 'justify-center',
-            location.pathname === '/' && 'bg-(--fill-tsp-white-light)',
+            location.pathname === '/' && 'bg-semi-fill-1',
           )}
         >
           <div className={'flex size-[18px] shrink-0 items-center justify-center'}>
-            <Tooltip title={collapsed ? '新建任务' : ''} arrow={false} placement="right">
+            <Tooltip content={collapsed ? '新建任务' : ''} arrow={false} position="right">
               <SquarePenIcon className={'size-[18px]'} />
             </Tooltip>
           </div>
-          {!collapsed && <div className={'flex min-w-0 flex-1 items-center gap-[4px] text-[14px] text-(--text-primary)'}>新建任务</div>}
+          {!collapsed && <div className={'text-semi-text-0 flex min-w-0 flex-1 items-center gap-[4px] text-[14px]'}>新建任务</div>}
         </div>
 
         <div
           onClick={toggle}
           className={cn(
-            'group pointer-events-auto flex h-[36px] w-full cursor-pointer items-center gap-3 rounded-[10px] px-3 transition-colors hover:bg-(--fill-tsp-white-light)',
+            'group hover:bg-semi-fill-0 pointer-events-auto flex h-[36px] w-full cursor-pointer items-center gap-3 rounded-[10px] px-3 transition-colors',
             compact && 'justify-center',
           )}
         >
           <div className={'flex size-[18px] shrink-0 items-center justify-center'}>
-            <Tooltip title={collapsed ? '搜索' : ''} arrow={false} placement="right">
+            <Tooltip content={collapsed ? '搜索' : ''} arrow={false} position="right">
               <SearchIcon className={'size-[18px]'} />
             </Tooltip>
           </div>
-          {!collapsed && <div className={'flex min-w-0 flex-1 items-center gap-[4px] text-[14px] text-(--text-primary)'}>任务</div>}
+          {!collapsed && <div className={'text-semi-text-0 flex min-w-0 flex-1 items-center gap-[4px] text-[14px]'}>任务</div>}
           {!collapsed && (
             <div className={'flex shrink-0 items-center gap-1'}>
-              <div className="hidden items-center gap-1 text-sm text-(--text-tertiary) group-hover:inline-flex">
+              <div className="text-semi-text-2 hidden items-center gap-1 text-sm group-hover:inline-flex">
                 <CommandIcon className={'size-[14px]'} />K
               </div>
             </div>
@@ -116,39 +116,41 @@ function Nav() {
 
         <div
           className={cn(
-            'group pointer-events-auto flex h-[36px] w-full cursor-pointer items-center gap-3 rounded-[10px] px-3 transition-colors hover:bg-(--fill-tsp-white-light)',
+            'group hover:bg-semi-fill-0 pointer-events-auto flex h-[36px] w-full cursor-pointer items-center gap-3 rounded-[10px] px-3 transition-colors',
             compact && 'justify-center',
-            location.pathname === '/knowledge-base' && 'bg-(--fill-tsp-white-light)',
+            location.pathname === '/knowledge-base' && 'bg-semi-fill-1',
           )}
           onClick={() => navigate('/knowledge-base')}
         >
           <div className={'flex size-[18px] shrink-0 items-center justify-center'}>
-            <Tooltip title={collapsed ? '知识库' : ''} arrow={false} placement="right">
+            <Tooltip content={collapsed ? '知识库' : ''} arrow={false} position="right">
               <LibraryBigIcon className={'size-[18px]'} />
             </Tooltip>
           </div>
-          {!collapsed && <div className={'flex min-w-0 flex-1 items-center gap-[4px] text-[14px] text-(--text-primary)'}>知识库</div>}
+          {!collapsed && <div className={'text-semi-text-0 flex min-w-0 flex-1 items-center gap-[4px] text-[14px]'}>知识库</div>}
         </div>
 
         <div
           className={cn(
-            'group pointer-events-auto flex h-[36px] w-full cursor-pointer items-center gap-3 rounded-[10px] px-3 transition-colors hover:bg-(--fill-tsp-white-light)',
+            'group hover:bg-semi-fill-0 pointer-events-auto flex h-[36px] w-full cursor-pointer items-center gap-3 rounded-[10px] px-3 transition-colors',
             compact && 'justify-center',
-            location.pathname === '/workflow' && 'bg-(--fill-tsp-white-light)',
+            location.pathname === '/workflow' && 'bg-semi-fill-1',
           )}
           onClick={() => navigate('/workflow')}
         >
           <div className={'flex size-[18px] shrink-0 items-center justify-center'}>
-            <Tooltip title={collapsed ? '工作流' : ''} arrow={false} placement="right">
+            <Tooltip content={collapsed ? '工作流' : ''} arrow={false} position="right">
               <WorkflowIcon className={'size-[18px]'} />
             </Tooltip>
           </div>
-          {!collapsed && <div className={'flex min-w-0 flex-1 items-center gap-[4px] text-[14px] text-(--text-primary)'}>工作流</div>}
+          {!collapsed && <div className={'text-semi-text-0 flex min-w-0 flex-1 items-center gap-[4px] text-[14px]'}>工作流</div>}
         </div>
 
-        <Divider>
-          <span className="text-sm text-(--text-secondary)">最近任务</span>
-        </Divider>
+        {!collapsed && (
+          <Divider>
+            <span className="text-semi-text-1 text-sm">最近任务</span>
+          </Divider>
+        )}
       </div>
     </motion.div>
   );

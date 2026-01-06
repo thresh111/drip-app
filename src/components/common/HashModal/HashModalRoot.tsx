@@ -34,7 +34,7 @@ function ModalWrapper({ id, children, zIndex = 1000 }: ModalWrapperProps) {
     >
       <div className="fixed inset-0 h-full w-full bg-transparent backdrop-blur-none" onClick={close} />
 
-      <div className="pointer-events-none flex h-full w-full items-center justify-center border border-(--border-main)">
+      <div className="pointer-events-none flex h-full w-full items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
