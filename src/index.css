@@ -8,81 +8,187 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* ===== 原有 Tailwind/shadcn 变量 ===== */
   --radius-sm: calc(var(--radius) - 4px);
-
   --radius-md: calc(var(--radius) - 2px);
-
   --radius-lg: var(--radius);
-
   --radius-xl: calc(var(--radius) + 4px);
-
   --radius-2xl: calc(var(--radius) + 8px);
-
   --radius-3xl: calc(var(--radius) + 12px);
-
   --radius-4xl: calc(var(--radius) + 16px);
 
   --color-background: var(--background);
-
   --color-foreground: var(--foreground);
-
   --color-card: var(--card);
-
   --color-card-foreground: var(--card-foreground);
-
   --color-popover: var(--popover);
-
   --color-popover-foreground: var(--popover-foreground);
-
   --color-primary: var(--primary);
-
   --color-primary-foreground: var(--primary-foreground);
-
   --color-secondary: var(--secondary);
-
   --color-secondary-foreground: var(--secondary-foreground);
-
   --color-muted: var(--muted);
-
   --color-muted-foreground: var(--muted-foreground);
-
   --color-accent: var(--accent);
-
   --color-accent-foreground: var(--accent-foreground);
-
   --color-destructive: var(--destructive);
-
   --color-border: var(--border);
-
   --color-input: var(--input);
-
   --color-ring: var(--ring);
-
   --color-chart-1: var(--chart-1);
-
   --color-chart-2: var(--chart-2);
-
   --color-chart-3: var(--chart-3);
-
   --color-chart-4: var(--chart-4);
-
   --color-chart-5: var(--chart-5);
-
   --color-sidebar: var(--sidebar);
-
   --color-sidebar-foreground: var(--sidebar-foreground);
-
   --color-sidebar-primary: var(--sidebar-primary);
-
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-
   --color-sidebar-accent: var(--sidebar-accent);
-
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-
   --color-sidebar-border: var(--sidebar-border);
-
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* ===== Semi Design 圆角变量 ===== */
+  --radius-semi-extra-small: var(--semi-border-radius-extra-small);
+  --radius-semi-small: var(--semi-border-radius-small);
+  --radius-semi-medium: var(--semi-border-radius-medium);
+  --radius-semi-large: var(--semi-border-radius-large);
+  --radius-semi-circle: var(--semi-border-radius-circle);
+  --radius-semi-full: var(--semi-border-radius-full);
+
+  /* ===== Semi Design 颜色变量 ===== */
+  /* 基础色 */
+  --color-semi-white: var(--semi-color-white);
+  --color-semi-black: var(--semi-color-black);
+
+  /* Primary 主色 */
+  --color-semi-primary: var(--semi-color-primary);
+  --color-semi-primary-hover: var(--semi-color-primary-hover);
+  --color-semi-primary-active: var(--semi-color-primary-active);
+  --color-semi-primary-disabled: var(--semi-color-primary-disabled);
+  --color-semi-primary-light-default: var(--semi-color-primary-light-default);
+  --color-semi-primary-light-hover: var(--semi-color-primary-light-hover);
+  --color-semi-primary-light-active: var(--semi-color-primary-light-active);
+
+  /* Secondary 次要色 */
+  --color-semi-secondary: var(--semi-color-secondary);
+  --color-semi-secondary-hover: var(--semi-color-secondary-hover);
+  --color-semi-secondary-active: var(--semi-color-secondary-active);
+  --color-semi-secondary-disabled: var(--semi-color-secondary-disabled);
+  --color-semi-secondary-light-default: var(--semi-color-secondary-light-default);
+  --color-semi-secondary-light-hover: var(--semi-color-secondary-light-hover);
+  --color-semi-secondary-light-active: var(--semi-color-secondary-light-active);
+
+  /* Tertiary 第三色 */
+  --color-semi-tertiary: var(--semi-color-tertiary);
+  --color-semi-tertiary-hover: var(--semi-color-tertiary-hover);
+  --color-semi-tertiary-active: var(--semi-color-tertiary-active);
+  --color-semi-tertiary-light-default: var(--semi-color-tertiary-light-default);
+  --color-semi-tertiary-light-hover: var(--semi-color-tertiary-light-hover);
+  --color-semi-tertiary-light-active: var(--semi-color-tertiary-light-active);
+
+  /* Default 默认色 */
+  --color-semi-default: var(--semi-color-default);
+  --color-semi-default-hover: var(--semi-color-default-hover);
+  --color-semi-default-active: var(--semi-color-default-active);
+
+  /* Info 信息色 */
+  --color-semi-info: var(--semi-color-info);
+  --color-semi-info-hover: var(--semi-color-info-hover);
+  --color-semi-info-active: var(--semi-color-info-active);
+  --color-semi-info-disabled: var(--semi-color-info-disabled);
+  --color-semi-info-light-default: var(--semi-color-info-light-default);
+  --color-semi-info-light-hover: var(--semi-color-info-light-hover);
+  --color-semi-info-light-active: var(--semi-color-info-light-active);
+
+  /* Success 成功色 */
+  --color-semi-success: var(--semi-color-success);
+  --color-semi-success-hover: var(--semi-color-success-hover);
+  --color-semi-success-active: var(--semi-color-success-active);
+  --color-semi-success-disabled: var(--semi-color-success-disabled);
+  --color-semi-success-light-default: var(--semi-color-success-light-default);
+  --color-semi-success-light-hover: var(--semi-color-success-light-hover);
+  --color-semi-success-light-active: var(--semi-color-success-light-active);
+
+  /* Danger 危险色 */
+  --color-semi-danger: var(--semi-color-danger);
+  --color-semi-danger-hover: var(--semi-color-danger-hover);
+  --color-semi-danger-active: var(--semi-color-danger-active);
+  --color-semi-danger-light-default: var(--semi-color-danger-light-default);
+  --color-semi-danger-light-hover: var(--semi-color-danger-light-hover);
+  --color-semi-danger-light-active: var(--semi-color-danger-light-active);
+
+  /* Warning 警告色 */
+  --color-semi-warning: var(--semi-color-warning);
+  --color-semi-warning-hover: var(--semi-color-warning-hover);
+  --color-semi-warning-active: var(--semi-color-warning-active);
+  --color-semi-warning-light-default: var(--semi-color-warning-light-default);
+  --color-semi-warning-light-hover: var(--semi-color-warning-light-hover);
+  --color-semi-warning-light-active: var(--semi-color-warning-light-active);
+
+  /* 功能色 */
+  --color-semi-focus-border: var(--semi-color-focus-border);
+  --color-semi-disabled-text: var(--semi-color-disabled-text);
+  --color-semi-disabled-border: var(--semi-color-disabled-border);
+  --color-semi-disabled-bg: var(--semi-color-disabled-bg);
+  --color-semi-disabled-fill: var(--semi-color-disabled-fill);
+  --color-semi-shadow: var(--semi-color-shadow);
+
+  /* 链接色 */
+  --color-semi-link: var(--semi-color-link);
+  --color-semi-link-hover: var(--semi-color-link-hover);
+  --color-semi-link-active: var(--semi-color-link-active);
+  --color-semi-link-visited: var(--semi-color-link-visited);
+
+  /* 边框与背景 */
+  --color-semi-border: var(--semi-color-border);
+  --color-semi-nav-bg: var(--semi-color-nav-bg);
+  --color-semi-overlay-bg: var(--semi-color-overlay-bg);
+
+  /* Fill 填充色 */
+  --color-semi-fill-0: var(--semi-color-fill-0);
+  --color-semi-fill-1: var(--semi-color-fill-1);
+  --color-semi-fill-2: var(--semi-color-fill-2);
+
+  /* Background 背景色 */
+  --color-semi-bg-0: var(--semi-color-bg-0);
+  --color-semi-bg-1: var(--semi-color-bg-1);
+  --color-semi-bg-2: var(--semi-color-bg-2);
+  --color-semi-bg-3: var(--semi-color-bg-3);
+  --color-semi-bg-4: var(--semi-color-bg-4);
+
+  /* Text 文字色 */
+  --color-semi-text-0: var(--semi-color-text-0);
+  --color-semi-text-1: var(--semi-color-text-1);
+  --color-semi-text-2: var(--semi-color-text-2);
+  --color-semi-text-3: var(--semi-color-text-3);
+
+  /* Highlight 高亮色 */
+  --color-semi-highlight-bg: var(--semi-color-highlight-bg);
+  --color-semi-highlight: var(--semi-color-highlight);
+
+  /* Data 数据可视化色 */
+  --color-semi-data-0: var(--semi-color-data-0);
+  --color-semi-data-1: var(--semi-color-data-1);
+  --color-semi-data-2: var(--semi-color-data-2);
+  --color-semi-data-3: var(--semi-color-data-3);
+  --color-semi-data-4: var(--semi-color-data-4);
+  --color-semi-data-5: var(--semi-color-data-5);
+  --color-semi-data-6: var(--semi-color-data-6);
+  --color-semi-data-7: var(--semi-color-data-7);
+  --color-semi-data-8: var(--semi-color-data-8);
+  --color-semi-data-9: var(--semi-color-data-9);
+  --color-semi-data-10: var(--semi-color-data-10);
+  --color-semi-data-11: var(--semi-color-data-11);
+  --color-semi-data-12: var(--semi-color-data-12);
+  --color-semi-data-13: var(--semi-color-data-13);
+  --color-semi-data-14: var(--semi-color-data-14);
+  --color-semi-data-15: var(--semi-color-data-15);
+  --color-semi-data-16: var(--semi-color-data-16);
+  --color-semi-data-17: var(--semi-color-data-17);
+  --color-semi-data-18: var(--semi-color-data-18);
+  --color-semi-data-19: var(--semi-color-data-19);
 }
 
 :root {
@@ -234,20 +340,11 @@
     rgba(255, 255, 255, 0) 94.95%
   );
   --background-drag-overlay: #ffffff80;
-  --background-thinking: linear-gradient(
-    90deg,
-    var(--text-primary) 0%,
-    #d9d8d8 50.48%,
-    var(--text-primary) 99.04%
-  );
+  --background-thinking: linear-gradient(90deg, var(--text-primary) 0%, #d9d8d8 50.48%, var(--text-primary) 99.04%);
   --background-app-banner: linear-gradient(180deg, #f7f7f7, #ececec);
   --background-share-header: linear-gradient(0deg, rgba(248, 248, 247, 0), #f8f8f7 45.05%);
   --background-chat-with-image-toolbar: rgba(248, 248, 247, 0.12);
-  --background-text-edit-panel: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    var(--background-menu-white) 100%
-  );
+  --background-text-edit-panel: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--background-menu-white) 100%);
   --background-tool-used-image-loading: #000;
 }
 
@@ -260,224 +357,4 @@
   50% {
     opacity: 0.05;
   }
-}
-
-.dark {
-  --background-gray-login: #050505;
-  --background-selection: #6580a5;
-  --background-tool-used: linear-gradient(
-    176deg,
-    rgba(40, 40, 40, 0) 5.88%,
-    rgba(255, 255, 255, 0.08) 51.28%,
-    rgba(40, 40, 40, 0) 94.95%
-  );
-  --background-drag-overlay: #00000080;
-  --background-thinking: linear-gradient(
-    90deg,
-    var(--text-primary) 0%,
-    #d9d8d8 50.48%,
-    var(--text-primary) 99.04%
-  );
-  --background-app-banner: linear-gradient(180deg, #f7f7f7, #ececec);
-  --background-share-header: linear-gradient(
-    var(--background-gray-main) 0%,
-    var(--background-gray-main) 45.05%
-  );
-  --background-chat-with-image-toolbar: rgba(39, 39, 40, 0.12);
-  --background-text-edit-panel: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    var(--background-menu-white) 100%
-  );
-  --background-tool-used-image-loading: #fff;
-}
-
-:root {
-  --text-primary: #34322d;
-  --text-secondary: #5e5e5b;
-  --text-tertiary: #858481;
-  --text-disable: #b9b9b7;
-  --text-blue: #0081f2;
-  --text-onblack: #ffffff;
-  --text-white: #ffffff;
-  --text-white-tsp: #ffffff60;
-  --theme-text-primary: #262626;
-  --theme-text-quaternary: #8c8c8c;
-  --logo-color: #34322d;
-  --text-shining: #e5e5e5;
-  --text-blue-dark: #005fb3;
-  --background-gray-main: #f8f8f7;
-  --background-white-main: #ffffff;
-  --background-menu-white: #ffffff;
-  --background-menu-gray: #f8f8f7;
-  --background-tsp-menu-white: #ffffff14;
-  --background-tsp-card-gray: #37352f0a;
-  --background-nav: #ebebeb;
-  --background-card: #fafafa;
-  --background-mask-black: #000000a6;
-  --background-mask-white: #f8f8f7a6;
-  --background-card-gray: #fafafa;
-  --background-preview-mask: #000000d9;
-  --border-main: #0000000f;
-  --border-blue: #0081f247;
-  --border-white: #ffffff33;
-  --border-btn-main: #0000001f;
-  --border-input-active: #0081f280;
-  --border-light: #0000000a;
-  --border-dark: #0000001f;
-  --border-primary: #4f59661f;
-  --icon-primary: #34322d;
-  --icon-secondary: #5e5e5b;
-  --icon-tertiary: #858481;
-  --icon-disable: #b9b9b7;
-  --icon-blue: #0081f2;
-  --icon-onblack: #ffffff;
-  --icon-white: #ffffff;
-  --icon-white-tsp: #ffffff60;
-  --function-error: #f25a5a;
-  --function-success: #25ba3b;
-  --function-warning: #efa201;
-  --function-error-tsp: #f25a5a14;
-  --function-warning-tsp: #efa2011f;
-  --function-success-tsp: #25ba3b14;
-  --fill-blue: #0081f214;
-  --fill-tsp-white-main: #37352f0f;
-  --fill-tsp-white-dark: #37352f14;
-  --fill-tsp-white-light: #37352f0a;
-  --fill-tsp-gray-dark: #37352f14;
-  --fill-tsp-gray-main: #37352f0a;
-  --fill-white: #ffffff;
-  --fill-black: #28282973;
-  --fill-gray: #f8f8f7;
-  --Button-primary-black: #1a1a19;
-  --Button-primary-white: #ffffff;
-  --Button-primary-brand: #0081f2;
-  --Button-primary-brand-disabled: #7cbdf5;
-  --Button-secondary-brand: #0081f21a;
-  --Button-secondary-error-border: #f25a5a80;
-  --Button-secondary-error-fill: #ffffff;
-  --Button-secondary-main: #ffffff;
-  --Button-secondary-gray: #37352f0f;
-  --tab-fill: rgba(0, 0, 0, 0.04);
-  --tab-active-black: #1a1a19;
-  --shadow-L: #0000003d;
-  --shadow-M: #0000001f;
-  --shadow-S: #00000014;
-  --shadow-XS: #0000000f;
-  --shadows-inner-0: #ffffff00;
-  --shadows-inner-1: #16191d14;
-  --shadows-inner-2: #16191d1f;
-  --shadows-drop-1: #16191d08;
-  --shadows-drop-2: #16191d0a;
-  --shadows-drop-3: #16191d14;
-  --shadows-drop-4: #16191d1f;
-  --shadows-highlight-1: #cce5ff;
-  --shadows-highlight-2: #1487fa;
-  --shadows-danger-1: #fed7d7;
-  --shadows-danger-2: #ee3a3a;
-  --shadows-card-border: #16191d1f;
-  --shadows-card-border-2: #16191d1f;
-  --Tooltips-main: #000000e6;
-  --gradual-white-0: #ffffff00;
-  --gradual-gray-100: #ffffff00;
-  --gradual-gray-0: #ffffff00;
-  --gradual-dark-20: #00000033;
-  --fill-input-chat: #ffffff;
-  --gradient-bg-mask-gray-0: #eaeaeb00;
-  --gradual-white-menu-0: #ffffff00;
-}
-
-.dark {
-  --text-primary: #dadada;
-  --text-secondary: #acacac;
-  --text-tertiary: #7f7f7f;
-  --text-disable: #5f5f5f;
-  --text-blue: #1a93fe;
-  --text-onblack: #000000e6;
-  --text-white: #ffffff;
-  --text-white-tsp: #ffffff60;
-  --theme-text-primary: #dbdbdb;
-  --theme-text-quaternary: #7a7a7a;
-  --logo-color: #dadada;
-  --text-shining: #474747;
-  --text-blue-dark: #489ce6;
-  --background-gray-main: #272728;
-  --background-white-main: #161618;
-  --background-menu-white: #383739;
-  --background-menu-gray: #272728;
-  --background-tsp-menu-white: #ffffff0f;
-  --background-tsp-card-gray: #ffffff0f;
-  --background-nav: #212122;
-  --background-card: #383739;
-  --background-mask-black: #000000a6;
-  --background-mask-white: #272728a6;
-  --background-card-gray: #383739;
-  --background-preview-mask: #000000d9;
-  --border-main: #ffffff14;
-  --border-white: #00000014;
-  --border-btn-main: #ffffff1a;
-  --border-input-active: #1a93fe80;
-  --border-light: #ffffff0f;
-  --border-dark: #ffffff29;
-  --border-primary: #56565f52;
-  --border-blue: #1a93fe47;
-  --icon-primary: #dadada;
-  --icon-secondary: #acacac;
-  --icon-tertiary: #7f7f7f;
-  --icon-disable: #5f5f5f;
-  --icon-blue: #1a93fe;
-  --icon-onblack: #000000d9;
-  --icon-white: #ffffff;
-  --icon-white-tsp: #ffffff60;
-  --function-error: #eb4d4d;
-  --function-success: #5eb92d;
-  --function-warning: #ffbf36;
-  --function-error-tsp: #eb4d4d14;
-  --function-warning-tsp: #ffbf361f;
-  --function-success-tsp: #25ba3b1f;
-  --fill-blue: #1a93fe1f;
-  --fill-tsp-white-main: #ffffff0f;
-  --fill-tsp-white-dark: #ffffff1f;
-  --fill-tsp-white-light: #ffffff0a;
-  --fill-tsp-gray-dark: #00000047;
-  --fill-tsp-gray-main: #00000033;
-  --fill-white: #3e3d3e;
-  --fill-black: #28282973;
-  --fill-gray: #444345;
-  --Button-primary-black: #ffffff;
-  --Button-primary-white: #ffffff14;
-  --Button-primary-brand: #1a93fe;
-  --Button-primary-brand-disabled: #215d93;
-  --Button-secondary-brand: #1a93fe1f;
-  --Button-secondary-error-border: #eb4d4d29;
-  --Button-secondary-error-fill: #eb4d4d1f;
-  --Button-secondary-main: #ffffff1f;
-  --Button-secondary-gray: #ffffff0f;
-  --tab-fill: rgba(255, 255, 255, 0.06);
-  --tab-active-black: #ffffff;
-  --shadow-L: #00000066;
-  --shadow-M: #0000003d;
-  --shadow-S: #00000029;
-  --shadow-XS: #0000001f;
-  --shadows-inner-0: #ffffff1f;
-  --shadows-inner-1: #ffffff14;
-  --shadows-inner-2: #ffffff1f;
-  --shadows-drop-1: #0000001f;
-  --shadows-drop-2: #00000033;
-  --shadows-drop-3: #00000047;
-  --shadows-drop-4: #0000005c;
-  --shadows-highlight-1: #1b61a6;
-  --shadows-highlight-2: #1487fa;
-  --shadows-danger-1: #8f1919;
-  --shadows-danger-2: #ee3a3a;
-  --shadows-card-border: #ffffff1f;
-  --shadows-card-border-2: #ffffff00;
-  --Tooltips-main: #000000e6;
-  --gradual-white-0: #27272800;
-  --gradual-gray-100: #444345;
-  --gradual-gray-0: #44434500;
-  --gradual-dark-20: #ffffff33;
-  --fill-input-chat: #363537;
-  --gradient-bg-mask-gray-0: #1e1e1e00;
-  --gradual-white-menu-0: #38373900;
 }

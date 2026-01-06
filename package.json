@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ant-design/icons": "~6.1.0",
+    "@douyinfe/semi-ui-19": "^2.90.2",
     "@floating-ui/react": "^0.27.16",
     "@radix-ui/react-collapsible": "^1.1.12",
     "@radix-ui/react-dialog": "^1.1.15",
@@ -25,6 +25,7 @@
     "@radix-ui/react-slot": "^1.2.4",
     "@radix-ui/react-tooltip": "^1.2.8",
     "@radix-ui/react-use-controllable-state": "^1.2.2",
+    "@semi-bot/semi-theme-drip": "^1.0.0",
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/react-query": "^5.90.16",
     "@tiptap/core": "^3.14.0",
@@ -43,7 +44,6 @@
     "@tiptap/starter-kit": "^3.14.0",
     "@xyflow/react": "^12.10.0",
     "ai": "^6.0.6",
-    "antd": "^6.1.3",
     "axios": "^1.13.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -70,6 +70,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@jacob-z/vite-plugin-semi-theme-loader": "^1.1.1",
     "@types/lodash.throttle": "^4.1.9",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
