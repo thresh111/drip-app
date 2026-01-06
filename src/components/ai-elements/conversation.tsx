@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@douyinfe/semi-ui-19';
+import { Button } from '@douyinfe/semi-ui';
 import { cn } from '@/lib/utils';
 import { ArrowDownIcon } from 'lucide-react';
 import type { ComponentProps } from 'react';

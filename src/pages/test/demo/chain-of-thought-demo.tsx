@@ -9,7 +9,7 @@ import {
 } from '@/components/ai-elements/chain-of-thought';
 
 import { SearchIcon, ImageIcon } from 'lucide-react';
-import { Image } from '@douyinfe/semi-ui-19';
+import { Image } from '@douyinfe/semi-ui';
 
 function ChainOfThoughtDemo() {
   return (

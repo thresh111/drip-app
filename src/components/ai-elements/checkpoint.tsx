@@ -1,6 +1,6 @@
 'use client';
 
-import { Tooltip, Button, Divider } from '@douyinfe/semi-ui-19';
+import { Tooltip, Button, Divider } from '@douyinfe/semi-ui';
 import { cn } from '@/lib/utils';
 import { BookmarkIcon, type LucideProps } from 'lucide-react';
 import type { ComponentProps, HTMLAttributes } from 'react';

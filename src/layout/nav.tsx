@@ -1,4 +1,4 @@
-import { Divider, Tooltip } from '@douyinfe/semi-ui-19';
+import { Divider, Tooltip } from '@douyinfe/semi-ui';
 import { CommandIcon, LibraryBigIcon, PanelLeftIcon, SearchIcon, SquarePenIcon, WorkflowIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';

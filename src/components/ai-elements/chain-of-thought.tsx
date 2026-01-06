@@ -2,7 +2,7 @@
 
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { Badge } from '@/components/ui/badge';
-import { Collapsible } from '@douyinfe/semi-ui-19';
+import { Collapsible } from '@douyinfe/semi-ui';
 import { cn } from '@/lib/utils';
 import { BrainIcon, ChevronDownIcon, DotIcon, type LucideIcon } from 'lucide-react';
 import type { ComponentProps, ReactNode } from 'react';
